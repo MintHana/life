@@ -3112,6 +3112,116 @@ figure.highlight pre .javascript .function {
   -ms-transform: none !important;
   transform: none !important;
 }
+.shuoshuo-foldable {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: max-height 0.5s ease;
+  -moz-transition: max-height 0.5s ease;
+  -o-transition: max-height 0.5s ease;
+  -ms-transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease;
+}
+.shuoshuo-foldable:not(.shuoshuo-expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: -webkit-linear-gradient(top, transparent, var(--card-bg) 80%);
+  background: -moz-linear-gradient(top, transparent, var(--card-bg) 80%);
+  background: -o-linear-gradient(top, transparent, var(--card-bg) 80%);
+  background: -ms-linear-gradient(top, transparent, var(--card-bg) 80%);
+  background: linear-gradient(to bottom, transparent, var(--card-bg) 80%);
+  pointer-events: none;
+}
+.shuoshuo-foldable.shuoshuo-expanded {
+  max-height: none !important;
+}
+.shuoshuo-foldable.shuoshuo-expanded::after {
+  display: none;
+}
+.shuoshuo-fold-wrapper {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  gap: 10px;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.shuoshuo-fold-btn {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0; /* 第二版固定颜色：浅灰色背景 */
+  border: 1px solid #ddd; /* 第二版固定颜色：灰色边框 */
+  color: #555; /* 第二版固定颜色：深灰色文字 */
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+.shuoshuo-fold-btn:hover {
+  background: #e0e0e0; /* 第二版固定颜色：悬停深一点 */
+  border-color: #bbb;
+  color: #333;
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+.shuoshuo-fold-btn.active {
+  background: #007bff; /* 第二版固定颜色：主题蓝色 */
+  border-color: #007bff;
+  color: #fff;
+}
+.shuoshuo-fold-btn .fold-icon {
+  font-size: 11px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  -o-transition: -o-transform 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+.shuoshuo-fold-stats {
+  font-size: 12px;
+  color: var(--text-color-secondary);
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
 @-moz-keyframes shake {
   0%, 100% {
     -webkit-transform: translateX(0);

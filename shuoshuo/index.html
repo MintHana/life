@@ -142,7 +142,7 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'shuoshuo'
-}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="page type-shuoshuo" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MintHana's Monents</span></a></span><div id="menus"></div></nav><div id="page-site-info"><h1 id="site-title">永遠不滅のモノが無い</h1></div></header><main class="layout hide-aside" id="content-inner"><div class="nc" id="page"><div id="article-container"><script type="application/json" id="shuoshuo-data">[{"author":null,"avatar":null,"date":"2025-12-07 12:41:00","key":"key-1","content":"\u003cp\u003e省考\u003cbr\u003e \u003cimg src=\"/images/65759asdasd6187498a8ee2a0eb41518706e1.jpg\" alt=\"省考\"\u003e\u003c/p\u003e\n","tags":["省考"]}]</script><script>(() => {
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="page type-shuoshuo" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MintHana's Monents</span></a></span><div id="menus"></div></nav><div id="page-site-info"><h1 id="site-title">永遠不滅のモノが無い</h1></div></header><main class="layout hide-aside" id="content-inner"><div class="nc" id="page"><div id="article-container"><script type="application/json" id="shuoshuo-data">[{"author":null,"avatar":null,"date":"2025-12-23 20:27:00","key":"key-1","content":"\u003ch2 id=\"实习经历总结\"\u003e\u003ca href=\"#实习经历总结\" class=\"headerlink\" title=\"实习经历总结\"\u003e\u003c/a\u003e实习经历总结\u003c/h2\u003e\u003ch3 id=\"时间线概览\"\u003e\u003ca href=\"#时间线概览\" class=\"headerlink\" title=\"时间线概览\"\u003e\u003c/a\u003e时间线概览\u003c/h3\u003e\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e2025年6月26日\u003c/strong\u003e：开始投递简历\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e截至今日\u003c/strong\u003e：累计投递100+份，沟通805次\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003e数据来源\u003c/strong\u003e：BOSS直聘\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"第一份实习经历\"\u003e\u003ca href=\"#第一份实习经历\" class=\"headerlink\" title=\"第一份实习经历\"\u003e\u003c/a\u003e第一份实习经历\u003c/h3\u003e\u003cp\u003e\u003cstrong\u003e时间\u003c/strong\u003e：2025年7月17日\u003cbr\u003e\u003cstrong\u003e公司类型\u003c/strong\u003e：外贸电商\u003cbr\u003e\u003cstrong\u003e团队规模\u003c/strong\u003e：1人（仅女老板）  \u003c/p\u003e\n\u003ch4 id=\"实际情况\"\u003e\u003ca href=\"#实际情况\" class=\"headerlink\" title=\"实际情况\"\u003e\u003c/a\u003e实际情况\u003c/h4\u003e\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003e注意\u003c/strong\u003e：工作内容与招聘描述完全不一致\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003cstrong\u003e主要问题\u003c/strong\u003e：\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e老板对业务一窍不通\u003c/li\u003e\n\u003cli\u003e实际工作内容：希望通过大数据技术海量获取目标客户邮箱进行推广\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch4 id=\"个人感受\"\u003e\u003ca href=\"#个人感受\" class=\"headerlink\" title=\"个人感受\"\u003e\u003c/a\u003e个人感受\u003c/h4\u003e\u003cp\u003e说实话，一开始算是”被骗进去”的\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003e\u003cem\u003e后续经历待更新…\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e尝试添加了一些Markdown格式，如折叠功能可能需要前端支持——全部由AI生成\u003c/code\u003e\u003c/p\u003e\n","tags":["实习"]},{"author":null,"avatar":null,"date":"2025-12-07 12:41:00","key":"key-1","content":"\u003cp\u003e省考\u003cbr\u003e \u003cimg src=\"/images/65759asdasd6187498a8ee2a0eb41518706e1.jpg\" alt=\"省考\"\u003e\u003c/p\u003e\n","tags":["省考"]}]</script><script>(() => {
   const limitConfig = {}
 
   const sortDataByDate = data => data.sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -284,6 +284,24 @@
 
       // 处理内容中的图片
       const processedContent = processImages(addLazyload(item.content))
+      
+      // 判断是否需要折叠
+      const contentText = item.content.replace(/<[^>]*>/g, '').trim();
+      const imgCount = (item.content.match(/<img/g) || []).length;
+      const needsFold = contentText.length > 150 || imgCount > 2;
+      
+      // 折叠相关类和按钮
+      const foldClass = needsFold ? 'shuoshuo-foldable' : '';
+      const foldStats = needsFold ? `<span class="shuoshuo-fold-stats">${contentText.length}字${imgCount > 0 ? `, ${imgCount}图` : ''}</span>` : '';
+      const foldButton = needsFold ? `
+        <div class="shuoshuo-fold-wrapper">
+          <button class="shuoshuo-fold-btn" type="button">
+            <span class="fold-text">展开全文</span>
+            <i class="fas fa-chevron-down fold-icon"></i>
+          </button>
+          ${foldStats}
+        </div>
+      ` : '';
 
       return `
         <div class="shuoshuo-item">
@@ -299,7 +317,8 @@
                 </time>
               </div>
             </div>
-            <div class="shuoshuo-content">${processedContent}</div>
+            <div class="shuoshuo-content ${foldClass}">${processedContent}</div>
+            ${foldButton}
             <div class="shuoshuo-footer ${tags ? 'flex-between' : 'flex-end'}">
               ${tags ? `<div class="shuoshuo-tags">${tags}</div>` : ''}
               ${commentButton}
@@ -327,8 +346,27 @@
     }, 0)
 
     window.lazyLoadInstance && window.lazyLoadInstance.update()
-    // 禁用原有的lightbox功能，使用我们的自定义查看器
-    // btf.loadLightbox(document.querySelectorAll('#article-container img:not(.no-lightbox)'))
+  }
+
+  // 折叠功能初始化
+  function initShuoshuoFold() {
+    const foldBtns = document.querySelectorAll('.shuoshuo-fold-btn');
+    
+    foldBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const shuoshuoItem = this.closest('.shuoshuo-item');
+        const contentEl = shuoshuoItem.querySelector('.shuoshuo-content');
+        const foldText = this.querySelector('.fold-text');
+        const foldIcon = this.querySelector('.fold-icon');
+        
+        const isExpanded = contentEl.classList.toggle('shuoshuo-expanded');
+        
+        // 修复：正确设置文本和旋转
+        foldText.textContent = isExpanded ? '收起内容' : '展开全文';
+        foldIcon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        this.classList.toggle('active', isExpanded);
+      });
+    });
   }
 
   const renderNavigation = () => {
@@ -403,6 +441,8 @@
     const pageData = data.slice(start, end)
     renderData(pageData)
     renderNavigation()
+    // 初始化折叠功能
+    setTimeout(initShuoshuoFold, 0)
   }
 
   window.shuoshuoPrevPage = () => {
@@ -641,4 +681,4 @@
   };
 
   window.pjax ? loadShuoshuo() : window.addEventListener('load', loadShuoshuo)
-})()</script></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Mint</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><div id="player" class="aplayer aplayer-withlist aplayer-fixed" data-id="9171330851" data-server="netease" data-type="playlist" data-order="random" data-fixed="true" data-listfolded="true" data-theme="#2D8CF0"></div><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script async data-pjax src="/"></script></div></body></html>
+})()</script></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Mint</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.2"></script><script src="/js/main.js?v=5.5.2"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script async data-pjax src="/"></script></div></body></html>
